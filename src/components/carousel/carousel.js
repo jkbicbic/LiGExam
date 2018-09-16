@@ -22,11 +22,13 @@ class Carousel extends Component{
 
     handleNav = (e) => {
         let l = this.state.loc;
+        let s = this.state.slides;
         if(e.target.value == 1){
             l === 0 ? l = 0 : l = l + 1400;
         }
         else{
-            l === -2800 ? l = -2800 : l = l - 1400;
+            let w = (((1400*s.length)-1400)*-1);
+            l === w ? l = w : l = l - 1400;
         }
         this.setState({loc: l});
     }
@@ -36,8 +38,8 @@ class Carousel extends Component{
         return(
             <div className="carousel">
                 <Slide defaultValue={carousel.slides} left={carousel.loc} />
-                <button className={(carousel.loc === 0) ? "carousel__button button--left disabled" : "carousel__button button--left"} onClick={this.handleNav} value={1}></button>
-                <button className={(carousel.loc === -2800) ? "carousel__button button--right disabled" : "carousel__button button--right"} onClick={this.handleNav} value={2}></button>
+                <button className={(carousel.loc === 0 ) ? "carousel__button button--left disabled" : "carousel__button button--left"} onClick={this.handleNav} value={1}></button>
+                <button className={(carousel.loc === (((1400*carousel.slides.length)-1400))*-1) ? "carousel__button button--right disabled" : "carousel__button button--right"} onClick={this.handleNav} value={2}></button>
                 <Pager defaultValue={carousel}/>
             </div>
         )

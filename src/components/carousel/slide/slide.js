@@ -17,7 +17,7 @@ class Slide extends Component {
             )
         })
         return(
-            <div className="carousel__slider" style={{left: loc+'px'}}>
+            <div className="carousel__slider" style={{left: loc+'px', width: (1400*slides.length)+'px'}}>
                 {slide}
             </div>
         ) 

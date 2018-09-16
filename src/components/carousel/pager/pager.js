@@ -24,7 +24,7 @@ class Pager extends Component {
         }.bind(this));
 
         return(
-            <div className="carousel__pagers">
+            <div className="carousel__pagers" style={{width: (16*((data.slides.length)*2))+'px'}}>
                 {pager}
             </div>
         ) 

@@ -10,32 +10,10 @@
 
     .carousel__slider{
 
-        width: 4200px;
         height: 418px;
         margin: 0 auto;
         position: absolute;
         top: 0;
-
-        &.slide1{
-
-        background-image: url(../../img/cover-photo.jpg);
-            left: 0;
-
-        }
-
-        &.slide2{
-
-            background-image: url(../../img/cover-photo-2.jpg);
-            left: -1400px;
-
-        }
-
-        &.slide3{
-
-            background-image: url(../../img/cover-photo-3.jpg);
-            left: -2800px;
-
-        }
 
         .carousel__slide{
             
@@ -119,12 +97,12 @@
 
     .carousel__pagers{
 
-        width: 80px;
         height: 16px;
         margin: 0 auto;
         position: absolute;
         bottom: 19px;
         left: 660px;
+
 
         .carousel__pager-button{
 
@@ -135,29 +113,26 @@
             display: inline-block;
             border: 0px;
 
-            &.pager1, &.pager2{
 
-                margin-right: 8px; 
-                 
+            &:first-child{
+                
+                margin-right: 8px;
+
             }
 
-            &.pager2, &.pager3{
+            &:first-child ~ button{
+
+                margin-left: 8px;
+                margin-right: 8px;
+
+            }
+
+            &:last-child{
 
                 margin-left: 8px;
 
             }
-
-            &:hover{
-
-                opacity: .8;
-
-            }
-
-            &:active{
-
-                opacity: .5;
-
-            }
+            
 
             &.active{
                 
