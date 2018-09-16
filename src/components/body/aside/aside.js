@@ -15,7 +15,7 @@ class Aside extends Component {
         return(
             <div className="aside">
                 <div className="aside__banner-top">Dummy Banner</div>
-                <img className="aside__recommended" src={Recommended} />
+                <img className="aside__recommended" src={Recommended} alt="recommended header" />
 
                 {article.map(function(art, index){
                     return <AsideArticle defaultValue={art} key={index}/>

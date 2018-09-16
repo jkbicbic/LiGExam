@@ -20,6 +20,18 @@
         padding-top: 4px;
         position: relative;
 
+        &:hover{
+            
+            background-color: #404040;
+
+        }
+
+        &:active{
+
+            background-color: #000;
+
+        }
+
         .article-list__button-icon{
 
             display: block;

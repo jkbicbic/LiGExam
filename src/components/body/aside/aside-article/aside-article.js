@@ -21,7 +21,7 @@ class AsideArticle extends Component{
     render(){
         return(
             <article className="aside__recommended-article" onMouseOver={this.onHover} onMouseOut={this.onOut}>
-                <img className="aside__article-image" src={this.state.image}/>
+                <img className="aside__article-image" src={this.state.image} alt="thumb"/>
                 <div className="aside__article-preview">
                     <header className="aside__article-header">サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</header>
                     <p className="aside__article-date">2016.01.01</p>

@@ -10,12 +10,22 @@
     }
 
     &:hover {
-        
+
         cursor: pointer;
 
         .aside__article-preview .aside__article-header{
     
             color: #e7ba2f;
+    
+        }
+    }
+
+    &:active {
+        
+
+        .aside__article-preview .aside__article-header{
+    
+            color: #826c26;
     
         }
     }
