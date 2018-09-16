@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './article.css';
-import thumb from '../../../../resources/img/thumb.png';
-import thumbClicked from '../../../../resources/img/thumb-clicked.png';
+import thumb from '../../../../img/thumb.png';
+import thumbClicked from '../../../../img/thumb-clicked.png';
 
 class Article extends Component{
 

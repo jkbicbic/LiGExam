@@ -1,78 +1,44 @@
 import React, {Component} from 'react';
-import './carousel.css'
+import './carousel.css';
+import Slide from './slide/slide';
+import Pager from './pager/pager';
+import CoverPhoto1 from '../../img/cover-photo.jpg';
+import CoverPhoto2 from '../../img/cover-photo-2.jpg';
+import CoverPhoto3 from '../../img/cover-photo-3.jpg';
 
 class Carousel extends Component{
 
     constructor(props) {
         super(props);
-        this.state = {slide: 'slide1', nav: 1, pager: 1}
+        this.state = {
+                loc: 0, 
+                slides: [
+                    {img: CoverPhoto1, header: 'キャッチコピーが入ります',subheader: 'サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト'},
+                    {img: CoverPhoto2, header: 'キャッチコピーが入ります',subheader: 'サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト'},
+                    {img: CoverPhoto3, header: 'キャッチコピーが入ります',subheader: 'サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト'}
+            ]
+        }
     }
 
-    updateState(s, n, p){
-        this.setState({slide: s, nav: n, pager: p})
-    }
-
-
-    handleNavLeft = () => {
-        let nav = this.state.nav;
-        let slide, navi, pager;
-        if(nav === 1){
-            slide = 'slide1'; navi = 1; pager = 1;
+    handleNav = (e) => {
+        let l = this.state.loc;
+        if(e.target.value == 1){
+            l === 0 ? l = 0 : l = l + 1400;
         }
         else{
-            nav = nav - 1;
-            slide = 'slide'+nav.toString(); navi = nav; pager = nav;
+            l === -2800 ? l = -2800 : l = l - 1400;
         }
-        this.updateState(slide, navi, pager);
-    }
-
-    handleNavRight = () => {
-        let nav = this.state.nav;
-        let slide, navi, pager;
-        if(nav === 3){
-            slide = 'slide3'; navi = 3; pager = 3;
-        }
-        else{
-            nav = nav + 1;
-            slide = 'slide'+nav.toString(); navi = nav; pager = nav;
-        }
-        this.updateState(slide, navi, pager);
-    }
-
-    handleNavPagers = (s, n, p) => {
-        // this.updateState(s, n, p);
+        this.setState({loc: l});
     }
 
     render() {
+        let carousel = this.state;
         return(
             <div className="carousel">
-                <div className={"carousel__slider " + this.state.slide}>
-                    <div className="carousel__slide">
-                        <div className="carousel__slide-content">
-                            <h1 className="carousel__slide-header">キャッチコピーが入ります。</h1>
-                            <p className="carousel__slide-subheader">サンプルテキストサンプルテキストサンプルテキストサンプルテキスト<br />サンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-                        </div>
-                    </div>
-                    <div className="carousel__slide">
-                        <div className="carousel__slide-content">
-                            <h1 className="carousel__slide-header">キャッチコピーが入ります。</h1>
-                            <p className="carousel__slide-subheader">サンプルテキストサンプルテキストサンプルテキストサンプルテキスト<br />サンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-                        </div>
-                    </div>
-                    <div className="carousel__slide">
-                        <div className="carousel__slide-content">
-                            <h1 className="carousel__slide-header">キャッチコピーが入ります。</h1>
-                            <p className="carousel__slide-subheader">サンプルテキストサンプルテキストサンプルテキストサンプルテキスト<br />サンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-                        </div>
-                    </div>
-                </div>
-                <button className={(this.state.nav === 1) ? "carousel__button button--left disabled" : "carousel__button button--left"} onClick={this.handleNavLeft}></button>
-                <button className={(this.state.nav === 3) ? "carousel__button button--right disabled" : "carousel__button button--right"} onClick={this.handleNavRight}></button>
-                <div className="carousel__pagers">
-                    <button className={(this.state.pager === 1 ) ? 'carousel__pager-button pager1 active':'carousel__pager-button pager1'} onClick={this.handleNavPagers('slide1', 1, 1)}></button>
-                    <button className={(this.state.pager === 2 ) ? 'carousel__pager-button pager2 active':'carousel__pager-button pager2'} onClick={this.handleNavPagers('slide2', 2, 2)}></button>
-                    <button className={(this.state.pager === 3 ) ? 'carousel__pager-button pager3 active':'carousel__pager-button pager3'} onClick={this.handleNavPagers('slide3', 3, 3)}></button>
-                </div>
+                <Slide defaultValue={carousel.slides} left={carousel.loc} />
+                <button className={(carousel.loc === 0) ? "carousel__button button--left disabled" : "carousel__button button--left"} onClick={this.handleNav} value={1}></button>
+                <button className={(carousel.loc === -2800) ? "carousel__button button--right disabled" : "carousel__button button--right"} onClick={this.handleNav} value={2}></button>
+                <Pager defaultValue={carousel}/>
             </div>
         )
     }

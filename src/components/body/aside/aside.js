@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './aside.css';
-import Recommended from '../../../resources/img/recommended.png';
+import Recommended from '../../../img/recommended.png';
 import AsideArticle from './aside-article/aside-article';
 
 class Aside extends Component {
