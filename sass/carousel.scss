@@ -18,21 +18,21 @@
 
         &.slide1{
 
-        background-image: url(../../resources/img/cover-photo.jpg);
+        background-image: url(../../img/cover-photo.jpg);
             left: 0;
 
         }
 
         &.slide2{
 
-            background-image: url(../../resources/img/cover-photo-2.jpg);
+            background-image: url(../../img/cover-photo-2.jpg);
             left: -1400px;
 
         }
 
         &.slide3{
 
-            background-image: url(../../resources/img/cover-photo-3.jpg);
+            background-image: url(../../img/cover-photo-3.jpg);
             left: -2800px;
 
         }
@@ -65,6 +65,9 @@
 
         .carousel__slide .carousel__slide-content .carousel__slide-subheader{
 
+            display: block;
+            width: 566px;
+            margin: 0 auto !important;
             color: #fff;
             text-align: center;
             font-size: 15px;
@@ -85,14 +88,14 @@
 
         &.button--left{
             
-            background: url(../../resources/img/carousel-button-left.png);   
+            background: url(../../img/carousel-button-left.png);   
             left: 160px;
 
         }
 
         &.button--right{
 
-            background: url(../../resources/img/carousel-button-right.png);
+            background: url(../../img/carousel-button-right.png);
             right: 160px;
 
         }
