@@ -2,31 +2,30 @@ import React, {Component} from 'react';
 
 class Pager extends Component {
 
-    moveToSlide =(e)=> {
-        this.props.onClick.handleNavPagers(e.target.value);
+    constructor(props){
+        super(props);
+        this.data = this.props.carouselSlides;
     }
 
+    moveToSlide =(e)=> {
+        this.props.onClick(e.target.value);
+    }
 
-    render() {
-        let data = this.props.defaultValue;
-        let loc = this.props.left;
-        let pager = data.map(function(n, index){
-            let num = index + 1;
-            let style;
-            if(loc === (1400*index)*-1){
-                style = 'carousel__pager-button pager'+ num +' active';
-            }
-            else{
-                style= 'carousel__pager-button pager'+num;
-            }
-            return(
-                <button key={index} className={style} onClick={this.moveToSlide.bind(this)} value={num}></button>
+    renderPagers = () => {
+        let left = this.props.left;
+        let pagers = [];
+        for(var i = 0; i < this.data; i++){
+            pagers.push(
+                <button className={(left === (1400*(i))*-1) ? 'carousel__pager-button active' :  'carousel__pager-button'} onClick={this.moveToSlide.bind(this)} value={i+1} key={i}></button>
             )
-        }.bind(this));
-
+        }
+        return pagers;
+    }
+s
+    render() {
         return(
-            <div className="carousel__pagers" style={{width: (16*((data.length)*2))+'px'}}>
-                {pager}
+            <div className="carousel__pagers" style={{width: (16*((this.data)*2))+'px'}}>
+                {this.renderPagers()}
             </div>
         ) 
 
