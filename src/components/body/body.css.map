@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,KAAK,CAED,KAAK,CAAE,MAAM,CACb,MAAM,CAAE,MAAM,CAEd,oBAAc,CAEV,KAAK,CAAE,MAAM,CACb,MAAM,CAAE,MAAM,CAEd,2BAAQ,CACJ,OAAO,CAAE,EAAE,CACX,OAAO,CAAE,KAAK,CACd,KAAK,CAAE,IAAI",
-"sources": ["../../../sass/body.scss"],
-"names": [],
-"file": "body.css"
-}
